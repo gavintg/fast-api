@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+deactivate > /dev/null 2>&1 || true 
+rm -rf .venv
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+echo "Your project is now setup! :)"
+echo "To run the API please execute the following: 'bin/run-api'"
