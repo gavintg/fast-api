@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-cd tests
-pytest -v 
+source .venv/bin/activate
+
+# pytest -s -v . <- that does not work???? 
+PYTHONPATH="$PWD/api" 
+python -m pytest -s -v .
