@@ -16,7 +16,7 @@ class TestUser:
         assert result.status_code == 200
         data = json.loads(result.content)
         assert data['access_token'] != None
-        assert data['token_type'] != 'Bearer'
+        assert data['token_type'] == 'Bearer'
 
 
     def test_post_token_failed(self):
