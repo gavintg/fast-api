@@ -1,6 +1,6 @@
-import argon2
 from pydantic import BaseModel, validator
 from typing import Optional
+from .common.password_hash import PasswordHash
 
 class UserModel(BaseModel):
     id: Optional[int] = 0
@@ -9,4 +9,4 @@ class UserModel(BaseModel):
 
     @validator("password", always=True)
     def set_password(cls, v, values, **kwargs):
-        return argon2.hash_password(v.encode('UTF-8'))
+        return PasswordHash().get_hashed_password(v.encode('UTF-8'))
