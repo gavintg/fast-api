@@ -4,3 +4,5 @@ source .venv/bin/activate
 
 cd api
 uvicorn main:app --reload
+
+echo "Please run 'bin/run-tests' next ..."

@@ -3,8 +3,6 @@
 mkdir -p $PWD/db
 chmod 777 $PWD/db
 
-docker compose up
-
 cat << EOF > $PWD/.env
 MYSQL_USERNAME=root
 MYSQL_PASSWORD=password
@@ -12,3 +10,7 @@ MYSQL_HOST=localhost
 MYSQL_PORT=3306
 MYSQL_DATABASE=fastapi
 EOF
+
+docker compose up -d
+
+echo "Please run 'bin/run-api' next ..."
