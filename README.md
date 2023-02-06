@@ -14,22 +14,6 @@ To setup your project please do the following:
 bin/setup-project
 ```
 
-## Saving Dependencies
-
-<sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/save-dependencies). :warning: </sub>
-
-If you have installed a new dependency for example: 
-
-```bash 
-pip install requests
-```
-
-Then please be sure to save your dependencies by running the following before commiting to git:
-
-```bash
-bin/save-dependencies
-```
-
 ## Running MySQL
 
 <sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/run-mysql). :warning: </sub>
@@ -71,4 +55,20 @@ Please run the following command to execute the Tests:
 
 ```bash
 bin/run-tests
+```
+
+## Saving Dependencies
+
+<sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/save-dependencies). :warning: </sub>
+
+If you have installed a new dependency for example: 
+
+```bash 
+pip install requests
+```
+
+Then please be sure to save your dependencies by running the following before commiting to git:
+
+```bash
+bin/save-dependencies
 ```

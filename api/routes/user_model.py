@@ -1,4 +1,4 @@
-import hashlib
+import argon2
 from pydantic import BaseModel, validator
 from typing import Optional
 
@@ -9,4 +9,4 @@ class UserModel(BaseModel):
 
     @validator("password", always=True)
     def set_password(cls, v, values, **kwargs):
-        return hashlib.md5(v.encode('UTF-8')).hexdigest()
+        return argon2.hash_password(v.encode('UTF-8'))

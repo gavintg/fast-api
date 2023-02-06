@@ -1,3 +1,4 @@
+import argon2
 from api.routes.user_model import UserModel
 from api.routes.user_repository import UserRepository
 
@@ -10,10 +11,9 @@ class TestUser:
         user_id = repository.insert(user)
         assert user_id != 0
 
-    def test_select_by_id(self):
-        user_id = repository.insert(UserModel(username='anotherUsername', password='anotherPassword'))
-        user = repository.select_by_id(user_id)
+    def test_select_by_username(self):
+        repository.insert(UserModel(username='anotherUsername', password='anotherPassword'))
+        user = repository.select_by_username('anotherUsername')
         assert user.username == 'anotherUsername'
-        assert user.password != 'anotherPassword' # should be md5 hash
-        assert user.id == user_id
+        assert user.password == argon2.hash_password('anotherPassword'.encode('UTF-8'))
 

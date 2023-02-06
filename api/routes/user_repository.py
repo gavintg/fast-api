@@ -22,12 +22,12 @@ class UserRepository(BaseRepository):
         connection.close()
         return cursor.lastrowid
 
-    def select_by_id(self, user_id:int) -> UserModel:
+    def select_by_username(self, username:str) -> UserModel:
         connection = super().get_connection()
         try:
-            sql = "SELECT * FROM `users` WHERE id=%s"
+            sql = "SELECT * FROM `users` WHERE `username`=%s"
             cursor = connection.cursor()
-            cursor.execute(sql, user_id)
+            cursor.execute(sql, username)
             id, username, password = cursor.fetchone()
             return UserModel(id=id, username=username, password=password)
         finally:

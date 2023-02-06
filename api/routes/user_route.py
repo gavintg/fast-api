@@ -7,9 +7,9 @@ user_router = APIRouter()
 @user_router.post('/user')
 async def create_user(user:UserModel):
     repository = UserRepository()
-    return repository.insert(user)
+    return {'user_id': repository.insert(user)}
 
-@user_router.get('/user/{user_id}')
-async def get_user(user_id:int):
+@user_router.get('/user/{username}')
+async def get_user(username:str):
     repository = UserRepository()
-    return repository.select_by_id(user_id)
+    return repository.select_by_username(username)
