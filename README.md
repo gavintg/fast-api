@@ -57,6 +57,30 @@ Please run the following command to execute the Tests:
 bin/run-tests
 ```
 
+## Resetting the project
+
+If you are not sure and you are getting wierd output which does not make sense, please consider resetting your project. Do this often
+to make sure you are fighting side effects from background processes that are running with 'cached' code. 
+
+```bash
+bin/kill-all
+bin/run-mysql
+bin/run-api
+bin/run-tests
+```
+
+You can always got for the `nuclear option` but please make sure you have commited your changes before running this, you might end up
+losing work if not. 
+
+```
+bin/kill-all
+rm -rf $PWD/db
+git clean -x -f -d
+bin/run-mysql
+bin/run-api
+bin/run-tests
+```
+
 ## Saving Dependencies
 
 <sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/save-dependencies). :warning: </sub>
