@@ -1,13 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException, Header
+from fastapi import APIRouter, HTTPException, Header
 from .token_repository import TokenRepository
-from fastapi.security import OAuth2PasswordBearer
 
 purchase_router = APIRouter()
 token_repository = TokenRepository()
 
 def is_valid_token(token:str):
-    validated = token_repository.validate_token(token)
-    print('Balls', validated)
     if not token_repository.validate_token(token):
         raise HTTPException(
             status_code=401,
