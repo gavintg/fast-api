@@ -17,3 +17,6 @@ class TestUserRepository:
         assert user.username == 'anotherUsername'
         assert PasswordHash().check_hashed_password('anotherPassword', user.hashed_password)
 
+    def test_select_by_username_does_not_exist(self):
+        user = repository.select_by_username('invalidUsernameForSelect')
+        assert user == None

@@ -69,8 +69,9 @@ bin/run-api
 bin/run-tests
 ```
 
-You can always got for the `nuclear option` but please make sure you have commited your changes before running this, you might end up
-losing work if not. You will need to enter the admin password for your local machine. 
+If this cannot be trusted. You can always got for the `nuclear option` but please make sure you have commited your changes before 
+running this, you might end up losing work if not. You will also need to enter the admin password for your local machine to make sure
+files are cleared in your local folder for this project. 
 
 ```
 bin/kill-all

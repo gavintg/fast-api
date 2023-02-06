@@ -15,12 +15,16 @@ class UserRepository(BaseRepository):
 
     def insert(self, user:UserModel) -> int:
         connection = super().get_connection()
-        sql = "INSERT INTO `users` (`username`, `password`) VALUES (%s, %s)"
-        cursor = connection.cursor()
-        cursor.execute(sql, (user.username, user.password))
-        connection.commit()
-        connection.close()
-        return cursor.lastrowid
+        try:
+            sql = "INSERT INTO `users` (`username`, `password`) VALUES (%s, %s)"
+            cursor = connection.cursor()
+            cursor.execute(sql, (user.username, user.password))
+            connection.commit()
+            return cursor.lastrowid
+        except:
+            return 0
+        finally:
+            connection.close()
 
     def select_by_username(self, username:str) -> UserModel:
         connection = super().get_connection()
@@ -29,6 +33,8 @@ class UserRepository(BaseRepository):
             cursor = connection.cursor()
             cursor.execute(sql, username)
             id, username, password = cursor.fetchone()
-            return UserModel(id=id, username=username, password='shhh', hashed_password=password)
+            return UserModel(id=id, username=username, password='', hashed_password=password)
+        except:
+            return None
         finally:
             connection.close()
