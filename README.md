@@ -30,9 +30,25 @@ Then please be sure to save your dependencies by running the following before co
 bin/save-dependencies
 ```
 
+## Running MySQL
+
+<sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/run-mysql). :warning: </sub>
+
+Please run the following to make sure you have a local MySQL database instance: 
+
+```bash
+bin/run-mysql
+```
+
 ## Running the API
 
 <sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/run-api). :warning: </sub>
+
+Please make sure you MySQL first:
+
+```bash
+bin/run-mysql
+```
 
 Please run the following command to execute the API: 
 
@@ -44,7 +60,14 @@ bin/run-api
 
 <sub> :warning: **Safety First** - You should always check the contents of the script before running it [here](bin/run-tests). :warning: </sub>
 
-To run the tests you would need to be sure to have the API running first, then you can run the following script: 
+Please make sure you MySQL and the API first:
+
+```bash
+bin/run-mysql
+bin/run-api
+```
+
+Please run the following command to execute the Tests: 
 
 ```bash
 bin/run-tests

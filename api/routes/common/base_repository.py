@@ -24,7 +24,12 @@ class BaseRepository:
         return os.getenv('MYSQL_PASSWORD')
 
     def get_connection(self) -> pymysql.Connection:
-        return pymysql.connect(host=self.get_host(), port=self.get_port(), user=self.get_username(), password=self.get_password(), database=self.get_database())
+        return pymysql.connect(
+            host=self.get_host(), 
+            port=self.get_port(), 
+            user=self.get_username(), 
+            password=self.get_password(), 
+            database=self.get_database())
 
     def execute(self, sql:str):
         connection = self.get_connection() 
