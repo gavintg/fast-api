@@ -3,5 +3,5 @@ import requests
 
 class TestPurchase:
 
-    def test_get_user(self):
+    def test_get_purchases(self):
         assert False
