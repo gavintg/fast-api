@@ -3,10 +3,11 @@ from typing import Optional
 from .common.password_hash import PasswordHash
 
 class UserModel(BaseModel):
-    id: Optional[int] = 0
-    username: str = ''
-    password: str = ''
+    id: Optional[int] = None
+    username: str = None
+    password: str = None
+    hashed_password: Optional[str]
 
     @validator("password", always=True)
     def set_password(cls, v, values, **kwargs):
-        return PasswordHash().get_hashed_password(v.encode('UTF-8'))
+        return PasswordHash().get_hashed_password(v)

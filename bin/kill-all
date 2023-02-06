@@ -2,6 +2,7 @@
 
 pkill uvicorn
 docker compose down
+rm -rf $PWD/db
 
 echo "Everything has been killed ... Please be sure to delete the ./db folder"
 echo "You would need start the project up again by running 'bin/run-mysql' and follow prompts from output ... "

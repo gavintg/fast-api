@@ -2,7 +2,7 @@ import hashlib
 
 class PasswordHash:
 
-    salt = 'IAmSpecialAndShouldBeDealtWithSeparately'
+    salt = 'IAmNotInScopeForThisProject!!!'
 
     def get_hashed_password(self, plain_text_password:str) -> str:
         hash_candidate = plain_text_password + self.salt

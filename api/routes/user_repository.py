@@ -29,6 +29,6 @@ class UserRepository(BaseRepository):
             cursor = connection.cursor()
             cursor.execute(sql, username)
             id, username, password = cursor.fetchone()
-            return UserModel(id=id, username=username, password=password)
+            return UserModel(id=id, username=username, password='shhh', hashed_password=password)
         finally:
             connection.close()

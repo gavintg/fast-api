@@ -15,5 +15,5 @@ class TestUserRepository:
         repository.insert(UserModel(username='anotherUsername', password='anotherPassword'))
         user = repository.select_by_username('anotherUsername')
         assert user.username == 'anotherUsername'
-        assert PasswordHash().check_hashed_password(b'anotherPassword', user.password)
+        assert PasswordHash().check_hashed_password('anotherPassword', user.hashed_password)
 
