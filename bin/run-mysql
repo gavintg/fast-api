@@ -13,4 +13,20 @@ EOF
 
 docker compose up -d
 
+max_attempts=3
+attempt_counter=0
+
+until $(nc -vz localhost 3306); do
+    if [ ${attempt_counter} -eq ${max_attempts} ];then
+      echo "Max attempts reached"
+      exit 1
+    fi
+
+    printf '.'
+    attempt_counter=$(($attempt_counter+1))
+    sleep 5
+done
+
+sleep 30 # waiting for mysqld ... this varies from machine to machine
+
 echo "Please run 'bin/run-api' next ..."

@@ -74,8 +74,9 @@ losing work if not.
 
 ```
 bin/kill-all
-rm -rf $PWD/db
+sudo rm -rf $PWD/db
 git clean -x -f -d
+bin/setup-project
 bin/run-mysql
 bin/run-api
 bin/run-tests
