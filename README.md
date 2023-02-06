@@ -70,7 +70,7 @@ bin/run-tests
 ```
 
 You can always got for the `nuclear option` but please make sure you have commited your changes before running this, you might end up
-losing work if not. 
+losing work if not. You will need to enter the admin password for your local machine. 
 
 ```
 bin/kill-all
