@@ -142,3 +142,5 @@ cython_debug/
 
 db/
 
+api/nohup.out
+api.log

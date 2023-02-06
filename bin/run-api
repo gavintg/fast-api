@@ -3,6 +3,8 @@
 source .venv/bin/activate
 
 cd api
-uvicorn main:app --reload
+pkill uvicorn
+nohup uvicorn main:app --reload > ../api.log &
 
+echo "uvicorn has been launched in the background, please see api.log for log output ... "
 echo "Please run 'bin/run-tests' next ..."
