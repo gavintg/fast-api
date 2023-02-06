@@ -15,6 +15,7 @@ iniconfig==2.0.0
 packaging==23.0
 pidantic==0.1.2
 pluggy==1.0.0
+py-bcrypt==0.4
 pycparser==2.21
 pydantic==1.10.4
 PyMySQL==1.0.2
