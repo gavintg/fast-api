@@ -4,7 +4,7 @@ from api.routes.common.password_hash import PasswordHash
 
 repository = UserRepository()
 
-class TestUser:
+class TestUserRepository:
 
     def test_insert_user(self):
         user = UserModel(username='testUser', password='testPassword')
