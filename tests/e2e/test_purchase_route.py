@@ -1,17 +1,14 @@
 import json
 import requests
+from api.routes.token_repository import TokenRepository
 
 class TestPurchase:
 
+    token_repository = TokenRepository()
+
     def test_get_purchases(self):
-        result = requests.post('http://localhost:8000/token', json={
-            'grant_type': 'password', 
-            'scope': 'read_write', 
-            'client_id': 'ValidTokenUser', 
-            'client_secret': 'ValidTokenPassword'})
-        data = json.loads(result.content)
+        token = self.token_repository.insert_token()
         
-        response = requests.get('http://localhost:8000/purchase', 
-                headers={"token" : data['access_token']})
+        response = requests.get('http://localhost:8000/purchase', headers={"token" : token})
         assert response.status_code == 200
         assert response.content != None

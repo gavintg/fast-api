@@ -13,6 +13,7 @@ class TestUser:
             'scope': 'read_write', 
             'client_id': 'ValidTokenUser', 
             'client_secret': 'ValidTokenPassword'})
+            
         assert result.status_code == 200
         data = json.loads(result.content)
         assert data['access_token'] != None
